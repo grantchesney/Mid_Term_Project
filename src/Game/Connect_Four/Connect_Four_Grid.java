@@ -3,6 +3,10 @@ package Game.Connect_Four;
 import Game.Grid;
 
 public class Connect_Four_Grid extends Grid {
+	
+	public Connect_Four_Grid(int height, int width) {
+		super(height, width);
+	}
 
 	public void addToColom(int column, String player) {
 

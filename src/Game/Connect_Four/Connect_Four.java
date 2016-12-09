@@ -2,9 +2,11 @@ package Game.Connect_Four;
 
 public class Connect_Four {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	private Connect_Four_Grid grid;
 
+	public Connect_Four() {
+		grid = new Connect_Four_Grid(6, 7);	
 	}
+	
 
 }
