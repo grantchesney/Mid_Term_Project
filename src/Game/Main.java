@@ -25,6 +25,8 @@ public class Main {
 		menu.addMouseMotionListener(menu);
 		menu.addMouseListener(menu);
 		
+		menu.requestFocus();
+		
 		frame.setContentPane(menu);
 		
 		frame.repaint();

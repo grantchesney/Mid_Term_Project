@@ -1,6 +1,7 @@
 package Game;
 
 import java.awt.Graphics;
+import java.awt.MouseInfo;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -29,7 +30,8 @@ public class MainMenu extends JPanel implements KeyListener, MouseListener, Mous
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		System.out.println(MouseInfo.getPointerInfo().getLocation().x);
+		System.out.println(MouseInfo.getPointerInfo().getLocation().y);
 		
 	}
 
