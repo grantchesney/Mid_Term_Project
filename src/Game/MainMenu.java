@@ -1,5 +1,6 @@
-package Game.Connect_Four;
+package Game;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -8,29 +9,26 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JPanel;
 
-public class Connect_Four extends JPanel implements KeyListener, MouseListener, MouseMotionListener {
+public class MainMenu extends JPanel implements KeyListener, MouseListener, MouseMotionListener {
 
-	private Connect_Four_Grid grid;
-
-	public Connect_Four()  {
-		grid = new Connect_Four_Grid(6, 7);	
+	public int counter = 0;
+	
+	public void paintComponent(Graphics g) {
+		g.drawString("This is gona be awesome", 200, 200);
 	}
 	
+	public void run() {
+		counter ++;
+	}
 	
-	
-	
-	
-	
-	//----------Auto Generated--------------
-
 	@Override
-	public void mouseDragged(MouseEvent e) {
+	public void mouseDragged(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseMoved(MouseEvent e) {
+	public void mouseMoved(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -82,6 +80,5 @@ public class Connect_Four extends JPanel implements KeyListener, MouseListener, 
 		// TODO Auto-generated method stub
 		
 	}
-	
 
 }
