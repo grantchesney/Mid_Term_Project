@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 
 public class MainMenu extends JPanel implements KeyListener, MouseListener, MouseMotionListener {
 
-	public int counter = 0;
 	private BufferedImage imgBackground;
 
 	MainMenu() throws IOException {
@@ -26,10 +25,6 @@ public class MainMenu extends JPanel implements KeyListener, MouseListener, Mous
 	
 	public void paintComponent(Graphics g) {
 		g.drawImage(imgBackground, 0, 0, this);
-	}
-	
-	public void run() {
-		counter ++;
 	}
 	
 	@Override
