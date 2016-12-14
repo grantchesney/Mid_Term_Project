@@ -30,7 +30,7 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 		
 	}
 
-	public void draw(Graphics g) {
+	public void paintComponent(Graphics g) {
 		//draw game board
 		g.drawImage(othelloBoard, 0, 0, null);
 	}

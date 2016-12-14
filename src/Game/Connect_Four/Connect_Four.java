@@ -19,7 +19,7 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 
 	}
 
-	public void draw(Graphics g) {
+	public void paintComponent(Graphics g) {
 
 	}
 
