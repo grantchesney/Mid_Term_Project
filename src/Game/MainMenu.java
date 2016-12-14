@@ -35,9 +35,9 @@ public class MainMenu extends JPanel implements KeyListener, MouseListener, Mous
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		System.out.println(MouseInfo.getPointerInfo().getLocation().x);
-		System.out.println(MouseInfo.getPointerInfo().getLocation().y);
-		
+		int x = MouseInfo.getPointerInfo().getLocation().x;
+		int y = MouseInfo.getPointerInfo().getLocation().y;
+
 	}
 
 	@Override
