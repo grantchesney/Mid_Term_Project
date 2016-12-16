@@ -9,6 +9,6 @@ import java.awt.*;
 public abstract class Game extends JPanel {
 
     public abstract void run();
-    public abstract void draw(Graphics g);
+    public abstract void paintComponent(Graphics g);
 
 }

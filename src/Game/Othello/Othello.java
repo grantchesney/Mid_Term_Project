@@ -23,11 +23,21 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 	BufferedImage whitePiece;
 	BufferedImage othelloBoard;
 	
+<<<<<<< HEAD
+=======
+	boolean turn = false; 
+	//false: black	true: white
+	
+>>>>>>> master
 	public void run() {
 		
 	}
 
+<<<<<<< HEAD
 	public void draw(Graphics g) {
+=======
+	public void paintComponent(Graphics g) {
+>>>>>>> master
 		//draw game board
 		g.drawImage(othelloBoard, 0, 0, null);
 	}
@@ -66,6 +76,7 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		int clickX = MouseInfo.getPointerInfo().getLocation().x;
 		int clickY = MouseInfo.getPointerInfo().getLocation().y;
 		int gridX, gridY;
@@ -76,6 +87,8 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 			gridY = (-clickY - 30)/90 + 1;
 			grid.addElement(gridX, gridY, grid.playerTurn);
 		}
+=======
+>>>>>>> master
 		
 	}
 

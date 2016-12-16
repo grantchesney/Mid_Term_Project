@@ -4,6 +4,7 @@ import Game.Grid;
 
 public class Othello_Grid extends Grid{
 	
+<<<<<<< HEAD
 	String playerTurn = "Black";
 	//counters for game pieces
 	int blackCounter = 2;
@@ -17,4 +18,6 @@ public class Othello_Grid extends Grid{
 			playerTurn = "White";
 		}
 	}
+=======
+>>>>>>> master
 }
