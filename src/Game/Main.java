@@ -11,10 +11,11 @@ import java.io.IOException;
 public class Main {
 
 	public static JFrame frame = new JFrame("Game");
-	private static int state = 1;
+	private static int state = 4;
 	private static Connect_Four connectFour;
 	private static Othello othello;
 	private static MainMenu menu;
+	private static PauseMenu pauseMenu;
 
 
 	public static void main(String[] args) throws IOException {
@@ -22,6 +23,7 @@ public class Main {
 		connectFour = new Connect_Four();
 		//othello = new Othello();
 		menu = new MainMenu();
+		pauseMenu = new PauseMenu();
 
 	
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,9 +37,14 @@ public class Main {
 		menu.addMouseMotionListener(menu);
 		menu.addMouseListener(menu);
 
-		menu.requestFocus();
+		pauseMenu.setSize(1024, 798);
+		pauseMenu.addKeyListener(menu);
+		pauseMenu.addMouseMotionListener(menu);
+		pauseMenu.addMouseListener(menu);
 
-		frame.setContentPane(menu);
+		pauseMenu.requestFocus();
+
+		frame.setContentPane(pauseMenu);
 		
 		frame.repaint();
 		
@@ -57,6 +64,10 @@ public class Main {
 					connectFour.repaint();
 					connectFour.run();
 					break;
+				case 4:
+					frame.repaint();
+					pauseMenu.repaint();
+					System.out.println("Blah");
 			}
 
 		}

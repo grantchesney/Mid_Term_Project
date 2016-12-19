@@ -1,14 +1,37 @@
 package Game;
 
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.Graphics;
+import java.awt.MouseInfo;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 
-/**
- * Created by Grant on 2016-12-17.
- */
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+
 public class PauseMenu extends JPanel implements KeyListener, MouseListener, MouseMotionListener {
 
-    private int mouseX, mouseY;
+    private BufferedImage imgBackground, imgReturnToGameSelected, imgPauseMenuQuitSelected;
+
+    public void PauseMenu() throws IOException {
+        URL fileURL = getClass().getResource("/img/pause menu no selection.png");
+        imgBackground = ImageIO.read(fileURL);
+        fileURL = getClass().getResource("/img/pause return to game.png");
+        imgReturnToGameSelected = ImageIO.read(fileURL);
+        fileURL = getClass().getResource("/img/pause when quit.png");
+        imgPauseMenuQuitSelected = ImageIO.read(fileURL);
+    }
+
+    public void paintComponent(Graphics g) {
+        g.drawImage(imgBackground, 0, 0, this);
+        g.drawString("fghfhgfhggfghf", 10, 20);
+    }
+
     @Override
     public void mouseDragged(MouseEvent arg0) {
         // TODO Auto-generated method stub
@@ -17,8 +40,7 @@ public class PauseMenu extends JPanel implements KeyListener, MouseListener, Mou
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        this.mouseX = e.getX();
-        this.mouseY = e.getY();
+
     }
 
     @Override
@@ -67,4 +89,5 @@ public class PauseMenu extends JPanel implements KeyListener, MouseListener, Mou
         // TODO Auto-generated method stub
 
     }
+
 }
