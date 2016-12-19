@@ -8,11 +8,16 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class Connect_Four extends Game implements KeyListener, MouseListener, MouseMotionListener {
 
+	private BufferedImage backgroundImage;
 	private Connect_Four_Grid grid;
 
 	public void run() {
@@ -20,16 +25,14 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 	}
 
 	public void paintComponent(Graphics g) {
-
+		g.drawImage(backgroundImage, 0, 0, this);
 	}
 
-	public Connect_Four()  {
-
+	public Connect_Four() throws IOException {
+		URL fileURL = getClass().getResource("/img/connect 4 board.png");
+		backgroundImage = ImageIO.read(fileURL);
 		grid = new Connect_Four_Grid(6, 7);
 	}
-
-	
-	
 	
 	//----------Auto Generated--------------
 
