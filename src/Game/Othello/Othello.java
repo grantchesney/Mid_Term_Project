@@ -49,8 +49,10 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 		grid = new Othello_Grid();
 	}
 
-	
-	
+
+	public void reset() {
+
+	}
 	
 	//----------Auto Generated--------------
 

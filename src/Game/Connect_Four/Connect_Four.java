@@ -33,7 +33,10 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 		backgroundImage = ImageIO.read(fileURL);
 		grid = new Connect_Four_Grid(6, 7);
 	}
-	
+
+	public void reset() {
+
+	}
 	//----------Auto Generated--------------
 
 	@Override

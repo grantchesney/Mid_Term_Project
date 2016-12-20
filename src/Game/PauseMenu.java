@@ -72,7 +72,16 @@ public class PauseMenu extends JPanel implements KeyListener, MouseListener, Mou
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        if(e.getY() >= 320 && e.getY() <= 408) {
+            if(e.getX() >= 345 && e.getX() <= 690) {
+                Main.returnToGame();
+            }
+        }
+        if(e.getY() >= 460 && e.getY() <= 545) {
+            if (e.getX() >= 348 && e.getX() <= 689) {
+               Main.quitGame();
+            }
+        }
     }
 
     @Override
@@ -101,7 +110,9 @@ public class PauseMenu extends JPanel implements KeyListener, MouseListener, Mou
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
+        if (e.getKeyCode() == 27) {
+            Main.returnToGame();
+        }
 
     }
 

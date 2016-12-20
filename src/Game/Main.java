@@ -16,6 +16,7 @@ public class Main {
 	private static Othello othello;
 	private static MainMenu menu;
 	private static PauseMenu pauseMenu;
+	private static int runningGame;
 
 
 	public static void main(String[] args) throws IOException {
@@ -84,6 +85,7 @@ public class Main {
 	}
 
 	public static void startOthello() {
+		runningGame = 1;
 		othello.setSize(1024, 798);
 		othello.addKeyListener(othello);
 		othello.addMouseMotionListener(othello);
@@ -96,8 +98,8 @@ public class Main {
 	}
 
 	public static void startConnectFour() {
+		runningGame = 2;
 		frame.setContentPane(connectFour);
-		connectFour.setSize(1024, 768);
 		connectFour.addKeyListener(connectFour);
 		connectFour.requestFocus();
 		frame.repaint();
@@ -105,13 +107,34 @@ public class Main {
 	}
 	public static void openPauseMenu() {
 		frame.setContentPane(pauseMenu);
-		pauseMenu.setSize(1024, 768);
 		pauseMenu.addKeyListener(pauseMenu);
 		pauseMenu.requestFocus();
 		frame.repaint();
 		state = 4;
-		System.out.println(state);
+	}
+	public static void quitGame() {
+		if (runningGame == 1) {
+			othello.reset();
+		}
+		else if (runningGame == 2) {
+			connectFour.reset();
+		}
+
+		frame.setContentPane(menu);
+		menu.addKeyListener(menu);
+		menu.requestFocus();
+		frame.repaint();
+		state = 1;
+		runningGame = 0;
 	}
 
+	public static void returnToGame() {
+		if (runningGame == 1) {
+			startOthello();
+		}
+		else if (runningGame == 2) {
+			startConnectFour();
+		}
+	}
 
 }
