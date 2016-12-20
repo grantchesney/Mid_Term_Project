@@ -43,10 +43,10 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 				if(grid.getElement(i, a) != null) {
 					if (grid.getElement(i, a).equals("x")) {
 						g.setColor(Color.BLACK);
-						g.fillRect(10 + (35*i), 15, 90, 60);
+						g.fillRect(192 + (91 * a), 144 + (80* i), 91, 80);
 					} else {
 						g.setColor(Color.RED);
-						g.fillRect(10, 15, 90, 60);
+						g.fillRect(192 + (91 * a), 144 + (80* i), 91, 80);
 					}
 				}
 			}
