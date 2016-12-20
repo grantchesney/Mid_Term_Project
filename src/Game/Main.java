@@ -1,6 +1,6 @@
 package Game;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import Game.Connect_Four.Connect_Four;
 import Game.Connect_Four.Connect_Four_Grid;
@@ -135,6 +135,10 @@ public class Main {
 		else if (runningGame == 2) {
 			startConnectFour();
 		}
+	}
+
+	public static void popup(String s) {
+		JOptionPane.showMessageDialog(frame, s);
 	}
 
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class Connect_Four extends Game implements KeyListener, MouseListener, MouseMotionListener {
 
@@ -61,6 +61,20 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 	}
 
 	public void checkWin() {
+		int size = 0;
+		for(int i = 0; i < grid.getHeight(); i++) { // Check if the board is full
+			for(int a = 0; a < grid.getWidth(); a++) {
+				if(grid.getElement(i,a) == null){
+					size ++;
+				}
+			}
+		}
+		if(size == 0) {
+			Main.popup("Game Over, No one wins!");
+			Main.quitGame();
+		}
+
+
 
 	}
 	//----------Auto Generated--------------
