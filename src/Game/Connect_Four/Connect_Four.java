@@ -18,7 +18,8 @@ import javax.swing.JPanel;
 public class Connect_Four extends Game implements KeyListener, MouseListener, MouseMotionListener {
 
 	private BufferedImage backgroundImage;
-	private Connect_Four_Grid grid;
+	private Connect_Four_Grid grid = new Connect_Four_Grid(6,7);
+	private boolean currentPlayer = true;
 
 	public void run() {
 
@@ -37,6 +38,14 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 	public void reset() {
 
 	}
+
+	public void switchPlayer() {
+
+	}
+
+	public void checkWin() {
+
+	}
 	//----------Auto Generated--------------
 
 	@Override
@@ -53,8 +62,49 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getX() >= 190 && e.getX() <= 285){
+			if(e.getY() >= 145 && e.getY() <= 625) {
+				if(!grid.isColomFull(0)) {
+					if(currentPlayer) {
+						grid.addToColom(0, "x");
+					} else {
+						grid.addToColom(0, "y");
+					}
+					currentPlayer = !currentPlayer;
+					checkWin();
+				}
+			}
+		}
+		if (e.getY() >= 285 && e.getX() <= 370){
+			if(e.getY() >= 145 && e.getY() <= 625) {
+
+			}
+		}
+		if (e.getY() >= 370 && e.getX() <= 465){
+			if(e.getY() >= 145 && e.getY() <= 625) {
+
+			}
+		}
+		if (e.getY() >= 465 && e.getX() <= 555){
+			if(e.getY() >= 145 && e.getY() <= 625) {
+
+			}
+		}
+		if (e.getY() >= 555 && e.getX() <= 645){
+			if(e.getY() >= 145 && e.getY() <= 625) {
+
+			}
+		}
+		if (e.getY() >= 645 && e.getX() <= 735){
+			if(e.getY() >= 145 && e.getY() <= 625) {
+
+			}
+		}
+		if (e.getY() >= 735 && e.getX() <= 830){
+			if(e.getY() >= 145 && e.getY() <= 625) {
+
+			}
+		}
 	}
 
 	@Override

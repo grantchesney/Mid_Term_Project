@@ -34,8 +34,8 @@ public class Grid implements GridInterface {
 	}
 
 	@Override
-	public String getElement(int x, int y) {
-		return grid[x][y];
+	public String getElement(int y, int x) {
+		return grid[y][x];
 	}
 
 }
