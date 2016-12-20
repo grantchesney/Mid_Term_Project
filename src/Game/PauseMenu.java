@@ -17,19 +17,30 @@ import javax.swing.JPanel;
 public class PauseMenu extends JPanel implements KeyListener, MouseListener, MouseMotionListener {
 
     private BufferedImage imgBackground, imgReturnToGameSelected, imgPauseMenuQuitSelected;
+    private int status = 1;
 
-    public void PauseMenu() throws IOException {
+    PauseMenu() throws IOException {
         URL fileURL = getClass().getResource("/img/pause menu no selection.png");
         imgBackground = ImageIO.read(fileURL);
-        fileURL = getClass().getResource("/img/pause return to game.png");
+        fileURL = getClass().getResource("/img/pause menu back to game.png");
         imgReturnToGameSelected = ImageIO.read(fileURL);
-        fileURL = getClass().getResource("/img/pause when quit.png");
+        fileURL = getClass().getResource("/img/pause menu quit.png");
         imgPauseMenuQuitSelected = ImageIO.read(fileURL);
     }
 
     public void paintComponent(Graphics g) {
-        g.drawImage(imgBackground, 0, 0, this);
-        g.drawString("fghfhgfhggfghf", 10, 20);
+        switch (this.status) {
+            case 1:
+                g.drawImage(imgBackground, 0, 0, this);
+                break;
+            case 2:
+                g.drawImage(imgReturnToGameSelected, 0, 0, this);
+                break;
+            case 3:
+                g.drawImage(imgPauseMenuQuitSelected, 0, 0, this);
+                break;
+        }
+
     }
 
     @Override
