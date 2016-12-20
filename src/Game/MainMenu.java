@@ -62,18 +62,24 @@ public class MainMenu extends JPanel implements KeyListener, MouseListener, Mous
 		if (this.mouseX >= 37 && this.mouseX <= 468) {
 			if(this.mouseY >= 240 && this.mouseY <= 653) {
 				this.state = 2;
+			} else  {
+				this.state = 1;
 			}
 
 		}
 		else if (this.mouseX >= 553 && this.mouseX <= 981) {
 			if(this.mouseY >= 240 && this.mouseY <= 653) {
 				this.state = 3;
+			} else  {
+				this.state = 1;
 			}
 
 		}
 		else if (this.mouseX >= 405 && this.mouseX <= 622) {
 			if(this.mouseY >= 678 && this.mouseY <= 768) {
 				this.state = 4;
+			} else  {
+				this.state = 1;
 			}
 		}
 		else if(true) {

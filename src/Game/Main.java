@@ -38,9 +38,9 @@ public class Main {
 		menu.addMouseListener(menu);
 
 		pauseMenu.setSize(1024, 798);
-		pauseMenu.addKeyListener(menu);
-		pauseMenu.addMouseMotionListener(menu);
-		pauseMenu.addMouseListener(menu);
+		pauseMenu.addKeyListener(pauseMenu);
+		pauseMenu.addMouseMotionListener(pauseMenu);
+		pauseMenu.addMouseListener(pauseMenu);
 
 		pauseMenu.requestFocus();
 
@@ -67,7 +67,6 @@ public class Main {
 				case 4:
 					frame.repaint();
 					pauseMenu.repaint();
-					System.out.println("Blah");
 			}
 
 		}

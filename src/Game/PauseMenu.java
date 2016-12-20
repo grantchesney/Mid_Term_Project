@@ -51,7 +51,23 @@ public class PauseMenu extends JPanel implements KeyListener, MouseListener, Mou
 
     @Override
     public void mouseMoved(MouseEvent e) {
-
+        if(e.getY() >= 320 && e.getY() <= 408) {
+            if(e.getX() >= 345 && e.getX() <= 690) {
+                this.status = 2;
+            } else  {
+                this.status = 1;
+            }
+        }
+        else if(e.getY() >= 460 && e.getY() <= 545) {
+             if (e.getX() >= 348 && e.getX() <= 689) {
+                 this.status = 3;
+             } else {
+                 this.status = 1;
+             }
+        }
+        else if(true) {
+            this.status = 1;
+        }
     }
 
     @Override
