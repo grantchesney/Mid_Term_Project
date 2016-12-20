@@ -10,8 +10,8 @@ public class Connect_Four_Grid extends Grid {
 
 	public void addToColom(int column, String player) {
 
-		for (int i = 0; i < this.getHeight(); i++) {
-			if (this.getElement(i, column) == null) {
+		for(int i = this.getHeight() - 1; i >= 0; i--) {
+			if(this.getElement(i, column) == null){
 				this.addElement(i, column, player);
 				break;
 			}

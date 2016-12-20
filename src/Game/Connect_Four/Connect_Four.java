@@ -21,26 +21,28 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 	private Connect_Four_Grid grid = new Connect_Four_Grid(6,7);
 	private boolean currentPlayer = true;
 
-	public void run() {
-
-	}
-
-	public void paintComponent(Graphics g) {
-		g.drawImage(backgroundImage, 0, 0, this);
-	}
-
 	public Connect_Four() throws IOException {
 		URL fileURL = getClass().getResource("/img/connect 4 board.png");
 		backgroundImage = ImageIO.read(fileURL);
 		grid = new Connect_Four_Grid(6, 7);
 	}
 
-	public void reset() {
+	public void run() {
 
 	}
 
-	public void switchPlayer() {
+	public void paintComponent(Graphics g) {
+		if(currentPlayer) {
+			g.drawString("Player 1", 10, 20);
+		} else {
+			g.drawString("Player 2", 10, 20);
+		}
+		g.drawImage(backgroundImage, 0, 0, this);
+	}
 
+	public void reset() {
+		grid.resetDB();
+		currentPlayer = true;
 	}
 
 	public void checkWin() {
@@ -75,36 +77,92 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 				}
 			}
 		}
-		if (e.getY() >= 285 && e.getX() <= 370){
+		if (e.getX() >= 285 && e.getX() <= 370){
 			if(e.getY() >= 145 && e.getY() <= 625) {
-
+				if(!grid.isColomFull(1)) {
+					if(currentPlayer) {
+						grid.addToColom(1, "x");
+					} else {
+						grid.addToColom(1, "y");
+					}
+					currentPlayer = !currentPlayer;
+					checkWin();
+				}
 			}
 		}
-		if (e.getY() >= 370 && e.getX() <= 465){
+		if (e.getX() >= 370 && e.getX() <= 465){
 			if(e.getY() >= 145 && e.getY() <= 625) {
-
+				if(!grid.isColomFull(2)) {
+					if(currentPlayer) {
+						grid.addToColom(2, "x");
+					} else {
+						grid.addToColom(2, "y");
+					}
+					currentPlayer = !currentPlayer;
+					checkWin();
+				}
 			}
 		}
-		if (e.getY() >= 465 && e.getX() <= 555){
+		if (e.getX() >= 465 && e.getX() <= 555){
 			if(e.getY() >= 145 && e.getY() <= 625) {
-
+				if(!grid.isColomFull(3)) {
+					if(currentPlayer) {
+						grid.addToColom(3, "x");
+					} else {
+						grid.addToColom(3, "y");
+					}
+					currentPlayer = !currentPlayer;
+					checkWin();
+				}
 			}
 		}
-		if (e.getY() >= 555 && e.getX() <= 645){
+		if (e.getX() >= 555 && e.getX() <= 645){
 			if(e.getY() >= 145 && e.getY() <= 625) {
-
+				if(!grid.isColomFull(4)) {
+					if(currentPlayer) {
+						grid.addToColom(4, "x");
+					} else {
+						grid.addToColom(4, "y");
+					}
+					currentPlayer = !currentPlayer;
+					checkWin();
+				}
 			}
 		}
-		if (e.getY() >= 645 && e.getX() <= 735){
+		if (e.getX() >= 645 && e.getX() <= 735){
 			if(e.getY() >= 145 && e.getY() <= 625) {
-
+				if(!grid.isColomFull(5)) {
+					if(currentPlayer) {
+						grid.addToColom(5, "x");
+					} else {
+						grid.addToColom(5, "y");
+					}
+					currentPlayer = !currentPlayer;
+					checkWin();
+				}
 			}
 		}
-		if (e.getY() >= 735 && e.getX() <= 830){
+		if (e.getX() >= 735 && e.getX() <= 830){
 			if(e.getY() >= 145 && e.getY() <= 625) {
-
+				if(!grid.isColomFull(6)) {
+					if(currentPlayer) {
+						grid.addToColom(6, "x");
+					} else {
+						grid.addToColom(6, "y");
+					}
+					currentPlayer = !currentPlayer;
+					checkWin();
+				}
 			}
 		}
+
+		for(int i = 0; i < grid.getHeight(); i++) {
+			for(int a = 0; a < grid.getWidth(); a++) {
+				System.out.print(grid.getElement(i, a) + " ");
+			}
+			System.out.println("\n");
+		}
+		System.out.println("***********************************");
 	}
 
 	@Override
