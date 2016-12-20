@@ -99,7 +99,7 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

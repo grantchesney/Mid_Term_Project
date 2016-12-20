@@ -1,6 +1,6 @@
 package Game.Connect_Four;
 
-import Game.Game;
+import Game.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -80,8 +80,9 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		if (e.getKeyCode() == 27) {
+			Main.openPauseMenu();
+		}
 	}
 
 	@Override

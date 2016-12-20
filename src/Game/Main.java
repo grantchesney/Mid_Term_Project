@@ -32,19 +32,29 @@ public class Main {
 		frame.setVisible(true);
 		frame.repaint();
 
-		menu.setSize(1024, 798);
-		menu.addKeyListener(menu);
-		menu.addMouseMotionListener(menu);
-		menu.addMouseListener(menu);
+		connectFour.setSize(1024, 798);
+		connectFour.addKeyListener(connectFour);
+		connectFour.addMouseMotionListener(connectFour);
+		connectFour.addMouseListener(connectFour);
 
 		pauseMenu.setSize(1024, 798);
 		pauseMenu.addKeyListener(pauseMenu);
 		pauseMenu.addMouseMotionListener(pauseMenu);
 		pauseMenu.addMouseListener(pauseMenu);
 
-		pauseMenu.requestFocus();
+//		othello.setSize(1024, 798);
+//		othello.addKeyListener(othello);
+//		othello.addMouseMotionListener(othello);
+//		othello.addMouseListener(othello);
 
-		frame.setContentPane(pauseMenu);
+		menu.setSize(1024, 798);
+		menu.addKeyListener(menu);
+		menu.addMouseMotionListener(menu);
+		menu.addMouseListener(menu);
+
+		menu.setSize(1024, 798);
+
+		frame.setContentPane(menu);
 		
 		frame.repaint();
 		
@@ -86,15 +96,21 @@ public class Main {
 	}
 
 	public static void startConnectFour() {
-		connectFour.setSize(1024, 798);
-		connectFour.addKeyListener(connectFour);
-		connectFour.addMouseMotionListener(connectFour);
-		connectFour.addMouseListener(connectFour);
-		connectFour.requestFocus();
 		frame.setContentPane(connectFour);
+		connectFour.setSize(1024, 768);
+		connectFour.addKeyListener(connectFour);
+		connectFour.requestFocus();
 		frame.repaint();
-
 		state = 3;
+	}
+	public static void openPauseMenu() {
+		frame.setContentPane(pauseMenu);
+		pauseMenu.setSize(1024, 768);
+		pauseMenu.addKeyListener(pauseMenu);
+		pauseMenu.requestFocus();
+		frame.repaint();
+		state = 4;
+		System.out.println(state);
 	}
 
 
