@@ -37,6 +37,21 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 		} else {
 			g.drawString("Player 2", 10, 20);
 		}
+
+		for(int i = 0; i < grid.getHeight(); i++) {
+			for(int a = 0; a < grid.getWidth(); a++) {
+				if(grid.getElement(i, a) != null) {
+					if (grid.getElement(i, a).equals("x")) {
+						g.setColor(Color.BLACK);
+						g.fillRect(10 + (35*i), 15, 90, 60);
+					} else {
+						g.setColor(Color.RED);
+						g.fillRect(10, 15, 90, 60);
+					}
+				}
+			}
+		}
+
 		g.drawImage(backgroundImage, 0, 0, this);
 	}
 
