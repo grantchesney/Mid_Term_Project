@@ -60,7 +60,7 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
         currentPlayer = true;
     }
 
-    public void checkWin() { // virtical win condition
+    public void checkWin() {
 
         for (int w = 0; w < grid.getWidth(); w++) {
             int count = 0;
@@ -89,6 +89,33 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
                 }
             }
         }
+
+       for (int h = 0; h < grid.getHeight(); h++) {
+        int count = 0;
+        String player = "";
+        for(int w = 0; w < grid.getWidth(); w++) {
+            if (w != grid.getWidth() - 1) {
+                if (w == 0 && grid.getElement(h, w) != null) {
+                    count = 1;
+                    player = grid.getElement(h, w);
+                }
+                if (grid.getElement(h , w + 1) != null) {
+                    if (player.equals(grid.getElement(h , w + 1))) {
+                        count++;
+                    } else {
+                        player = grid.getElement(h , w + 1);
+                        count = 1;
+                    }
+                } else {
+                    player = "";
+                    count = 1;
+                }
+                if (count == 4) { // on win
+                    System.out.println("Win");
+                }
+            }
+        }
+       }
 
         int size = 0; // Full board win condition
         for (int i = 0; i < grid.getHeight(); i++) { // Check if the board is full
