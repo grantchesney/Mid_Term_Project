@@ -84,7 +84,13 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
                         count = 1;
                     }
                     if (count == 4) { // on win
-                        System.out.println("Win");
+                        //System.out.println("Win");
+                        if(player.equals("x")) {
+                            Main.popup("Game Over, player 1 wins!");
+                        } else {
+                            Main.popup("Game Over, player 2 wins!");
+                        }
+                        Main.quitGame();
                     }
                 }
             }
@@ -111,7 +117,13 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
                     count = 1;
                 }
                 if (count == 4) { // on win
-                    System.out.println("Win");
+                    //System.out.println("Win");
+                    if(player.equals("x")) {
+                        Main.popup("Game Over, player 1 wins!");
+                    } else {
+                        Main.popup("Game Over, player 2 wins!");
+                    }
+                    Main.quitGame();
                 }
             }
         }
