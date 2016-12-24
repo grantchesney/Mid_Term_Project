@@ -128,6 +128,23 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
             }
         }
        }
+       //Diagonal check
+
+        //check down and right
+        for(int h = 0; h < grid.getHeight(); h++) {
+            if(h <= 2) {
+                for (int w = 0; w < grid.getWidth(); w++) {
+                    if (w + h < grid.getWidth() && w + h < grid.getHeight()) {
+                        System.out.println(grid.getElement(w + h, w));
+                    }
+                }
+                System.out.println("************************** H = " + h);
+            }
+        }
+
+        //end check up and right
+
+        //end Diagonal check
 
         int size = 0; // Full board win condition
         for (int i = 0; i < grid.getHeight(); i++) { // Check if the board is full
