@@ -130,19 +130,50 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
        }
        //Diagonal check
 
-        //check down and right
+        //check down and right, good
         for(int h = 0; h < grid.getHeight(); h++) {
             if(h <= 2) {
                 for (int w = 0; w < grid.getWidth(); w++) {
                     if (w + h < grid.getWidth() && w + h < grid.getHeight()) {
-                        System.out.println(grid.getElement(w + h, w));
+                        //System.out.println(grid.getElement(w + h, w));
                     }
                 }
-                System.out.println("************************** H = " + h);
+                //System.out.println("************************** H = " + h);
+            }
+        }
+
+        for(int h = 0; h < grid.getHeight(); h++) {
+            if(h <= 3) {
+                for (int w = 0; w < grid.getWidth(); w++) {
+                    if (w < grid.getHeight() && w + h < grid.getWidth()) {
+                        //System.out.println(grid.getElement(w, w + h));
+                    }
+                }
+                //System.out.println("************************** H = " + h);
             }
         }
 
         //end check up and right
+
+        //up and right, good
+        for(int h = 0; h < grid.getHeight(); h++) {
+            if(h <= 2) {
+                for (int w = 0; w < grid.getWidth(); w++) {
+                    if ((grid.getHeight() - h - 1) - w  <= grid.getHeight() - 1 && w <= grid.getWidth() - 1) {
+                        if((grid.getHeight() - h - 1) - w >= 0) {
+                            //System.out.println(grid.getElement((grid.getHeight() - h - 1) - w, w) + "h  = " + ((grid.getHeight() - 1 - h) - w) + " w = " + w );
+                        }
+                    }
+                }
+                //System.out.println("************************** H = " + h);
+            }
+        }
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        //End up and right
+
 
         //end Diagonal check
 
