@@ -73,7 +73,7 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
                     }
 
                     if (grid.getElement(h - 1, w) != null) {
-                        if (player.equals(grid.getElement(h - 1, w))) { // prob
+                        if (player.equals(grid.getElement(h - 1, w))) {
                             count++;
                         } else {
                             player = grid.getElement(h - 1, w);
@@ -201,16 +201,25 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
                 for (int w = grid.getWidth() - 1; w >= 0; w--) {
                     if (w < grid.getHeight() && w - (grid.getHeight() - h -2) < grid.getWidth()) {
                         if(w - (grid.getHeight() - h -2) >= 0) {
-                            System.out.println(grid.getElement(w,w - (grid.getHeight() - h -2)) + "h  = " + (w) + " w = " + (w - (grid.getHeight() - h -2)));
+                            //System.out.println(grid.getElement(w,w - (grid.getHeight() - h -2)) + "h  = " + (w) + " w = " + (w - (grid.getHeight() - h -2)));
                         }
                     }
                 }
-                System.out.println("************************** H = " + h);
+                //System.out.println("************************** H = " + h);
             }
         }
         //end check left and up
 
         //check left and down
+        for(int h = 0;  h < grid.getHeight(); h++) {
+            for(int w = grid.getWidth() - 1; w >= 0; w--) {
+                if(h + (grid.getWidth() - 1 - w) < grid.getHeight()) {
+                    //System.out.println(grid.getElement(h + (grid.getWidth() - 1 - w), w) + "h  = " + (h + (grid.getWidth() - 1 - w)) + " w = " + (w));
+                }
+            }
+            //System.out.println("************************** H = " + h);
+        }
+
         //check left and up
 
         //end Diagonal check
