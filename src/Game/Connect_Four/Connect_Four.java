@@ -153,7 +153,7 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
             }
         }
 
-        //end check up and right
+        //end check down and right
 
         //up and right, good
         for(int h = 0; h < grid.getHeight(); h++) {
@@ -169,11 +169,24 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
             }
         }
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        for (int w = 0; w < grid.getWidth(); w++) {
+            if(w <= 3) {
+                for (int h = 0; h < grid.getHeight(); h++) {
+                    if (w + h < grid.getWidth()) {
+                        //System.out.println(grid.getElement((grid.getHeight() - h - 1), w + h) + "h  = " + (grid.getHeight() - h - 1) + " w = " + (w + h));
+                    }
+                }
+                //System.out.println("************************** w = " + w);
+            }
+        }
+
         //End up and right
 
+        //check left and up
+        //end check left and up
+
+        //check left and down
+        //check left and up
 
         //end Diagonal check
 
