@@ -188,7 +188,20 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
                 for (int w = grid.getWidth() - 1; w >= 0; w--) {
                     if ((w -(grid.getHeight() - h - 3)) < grid.getHeight() && w < grid.getWidth()) {
                         if(w - (grid.getHeight() - h - 3) >= 0) {
-                            System.out.println(grid.getElement(w - (grid.getHeight() - h - 3), w) + "h  = " + (w - (grid.getHeight() - h - 3)) + " w = " + (w));
+                            //System.out.println(grid.getElement(w - (grid.getHeight() - h - 3), w) + "h  = " + (w - (grid.getHeight() - h - 3)) + " w = " + (w));
+                        }
+                    }
+                }
+                //System.out.println("************************** H = " + h);
+            }
+        }
+
+        for(int h = 0; h < grid.getWidth(); h++) {
+            if(h <= 5) {
+                for (int w = grid.getWidth() - 1; w >= 0; w--) {
+                    if (w < grid.getHeight() && w - (grid.getHeight() - h -2) < grid.getWidth()) {
+                        if(w - (grid.getHeight() - h -2) >= 0) {
+                            System.out.println(grid.getElement(w,w - (grid.getHeight() - h -2)) + "h  = " + (w) + " w = " + (w - (grid.getHeight() - h -2)));
                         }
                     }
                 }
