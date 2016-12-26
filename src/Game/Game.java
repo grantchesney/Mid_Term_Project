@@ -10,5 +10,6 @@ public abstract class Game extends JPanel {
 
     public abstract void run();
     public abstract void paintComponent(Graphics g);
+    public abstract void reset();
 
 }

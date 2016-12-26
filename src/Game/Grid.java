@@ -17,10 +17,17 @@ public class Grid implements GridInterface {
 		this.height = height;
 		this.grid = new String[height][width];
 	}
+	public void resetDB() {
+		for(int i = 0; i < this.height; i++) {
+			for(int a = 0; a < this.width; a++) {
+				grid[i][a] = null;
+			}
+		}
+	}
 
 	@Override
-	public void addElement(int x, int y, String s) {
-		this.grid[x][y] = s;
+	public void addElement(int y, int x, String s) {
+		this.grid[y][x] = s;
 	}
 
 	@Override
@@ -34,8 +41,8 @@ public class Grid implements GridInterface {
 	}
 
 	@Override
-	public String getElement(int x, int y) {
-		return grid[x][y];
+	public String getElement(int y, int x) {
+		return grid[y][x];
 	}
 
 }
