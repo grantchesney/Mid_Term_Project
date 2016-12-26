@@ -11,6 +11,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -132,24 +133,85 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 
         //check down and right, good
         for(int h = 0; h < grid.getHeight(); h++) {
+            int count = 0;
+            String player = "";
             if(h <= 2) {
                 for (int w = 0; w < grid.getWidth(); w++) {
                     if (w + h < grid.getWidth() && w + h < grid.getHeight()) {
-                        //System.out.println(grid.getElement(w + h, w));
+                        if(w == 0 && grid.getElement(w + h, w) != null) {
+                            count = 1;
+                            player = grid.getElement(w + h, w);
+                        }
+                        if(w + h <= 4) {
+                            if(grid.getElement(w+h + 1, w +1) != null) {
+                                if(player.equals(grid.getElement(w+h + 1, w +1))) {
+                                    count ++;
+                                } else {
+                                    count = 1;
+                                    player = grid.getElement(w+h + 1, w +1);
+                                }
+                            } else {
+                                count = 0;
+                                player = "";
+                            }
+                        }
+
+                        if(count >= 4) {
+                            if(player.equals("x")) {
+                                Main.popup("Game Over, player 1 wins!");
+                            } else {
+                                Main.popup("Game Over, player 2 wins!");
+                            }
+                            Main.quitGame();
+                            break;
+                        }
                     }
                 }
-                //System.out.println("************************** H = " + h);
             }
         }
 
         for(int h = 0; h < grid.getHeight(); h++) {
+            ArrayList<String> line = new ArrayList<String>();
             if(h <= 3) {
                 for (int w = 0; w < grid.getWidth(); w++) {
                     if (w < grid.getHeight() && w + h < grid.getWidth()) {
-                        //System.out.println(grid.getElement(w, w + h));
+                        line.add(grid.getElement(w, w + h));
+                        System.out.println(grid.getElement(w, w + h) + "h  = " + (w) + " w = " + (w + h));
                     }
                 }
-                //System.out.println("************************** H = " + h);
+                System.out.println("************************** H = " + h);
+            }
+            int count = 0;
+            String player = "";
+            for(int i = 0; i < line.size(); i++) {
+                if(i < line.size() -1) {
+                    if (i == 0 && line.get(i) != null) {
+                        count ++;
+                        player = line.get(i);
+                    }
+                    if(line.get(i + 1) != null) {
+                        if(player.equals(line.get(i + 1))) {
+                            count ++;
+                            player = line.get(i + 1);
+                        } else {
+                            count  = 1;
+                            player = line.get(i + 1);
+                        }
+
+                    } else {
+                        count = 0;
+                        player = "";
+                    }
+                }
+                if(count >= 4) {
+                    if(player.equals("x")) {
+                        Main.popup("Game Over, player 1 wins!");
+                    } else {
+                        Main.popup("Game Over, player 2 wins!");
+                    }
+                    Main.quitGame();
+                    break;
+                }
             }
         }
 
@@ -157,77 +219,282 @@ public class Connect_Four extends Game implements KeyListener, MouseListener, Mo
 
         //up and right, good
         for(int h = 0; h < grid.getHeight(); h++) {
+            ArrayList<String> line = new ArrayList<String>();
             if(h <= 2) {
                 for (int w = 0; w < grid.getWidth(); w++) {
                     if ((grid.getHeight() - h - 1) - w  <= grid.getHeight() - 1 && w <= grid.getWidth() - 1) {
                         if((grid.getHeight() - h - 1) - w >= 0) {
+                            line.add(grid.getElement((grid.getHeight() - h - 1) - w, w));
                             //System.out.println(grid.getElement((grid.getHeight() - h - 1) - w, w) + "h  = " + ((grid.getHeight() - 1 - h) - w) + " w = " + w );
                         }
                     }
                 }
                 //System.out.println("************************** H = " + h);
             }
+            int count = 0;
+            String player = "";
+            for(int i = 0; i < line.size(); i++) {
+                if(i < line.size() -1) {
+                    if (i == 0 && line.get(i) != null) {
+                        count ++;
+                        player = line.get(i);
+                    }
+                    if(line.get(i + 1) != null) {
+                        if(player.equals(line.get(i + 1))) {
+                            count ++;
+                            player = line.get(i + 1);
+                        } else {
+                            count  = 1;
+                            player = line.get(i + 1);
+                        }
+
+                    } else {
+                        count = 0;
+                        player = "";
+                    }
+                }
+                if(count >= 4) {
+                    if(player.equals("x")) {
+                        Main.popup("Game Over, player 1 wins!");
+                    } else {
+                        Main.popup("Game Over, player 2 wins!");
+                    }
+                    Main.quitGame();
+                    break;
+                }
+            }
         }
 
         for (int w = 0; w < grid.getWidth(); w++) {
+            ArrayList<String> line = new ArrayList<String>();
             if(w <= 3) {
                 for (int h = 0; h < grid.getHeight(); h++) {
                     if (w + h < grid.getWidth()) {
+                        line.add(grid.getElement((grid.getHeight() - h - 1), w + h));
                         //System.out.println(grid.getElement((grid.getHeight() - h - 1), w + h) + "h  = " + (grid.getHeight() - h - 1) + " w = " + (w + h));
                     }
                 }
                 //System.out.println("************************** w = " + w);
             }
+            int count = 0;
+            String player = "";
+            for(int i = 0; i < line.size(); i++) {
+                if(i < line.size() -1) {
+                    if (i == 0 && line.get(i) != null) {
+                        count ++;
+                        player = line.get(i);
+                    }
+                    if(line.get(i + 1) != null) {
+                        if(player.equals(line.get(i + 1))) {
+                            count ++;
+                            player = line.get(i + 1);
+                        } else {
+                            count  = 1;
+                            player = line.get(i + 1);
+                        }
+
+                    } else {
+                        count = 0;
+                        player = "";
+                    }
+                }
+                if(count >= 4) {
+                    if(player.equals("x")) {
+                        Main.popup("Game Over, player 1 wins!");
+                    } else {
+                        Main.popup("Game Over, player 2 wins!");
+                    }
+                    Main.quitGame();
+                    break;
+                }
+            }
+
         }
 
         //End up and right
 
         //check left and up
         for(int h = grid.getHeight() - 1; h>= 0; h--) {
+            ArrayList<String> line = new ArrayList<String>();
             if(h <= 2) {
                 for (int w = grid.getWidth() - 1; w >= 0; w--) {
                     if ((w -(grid.getHeight() - h - 3)) < grid.getHeight() && w < grid.getWidth()) {
                         if(w - (grid.getHeight() - h - 3) >= 0) {
+                            line.add(grid.getElement(w - (grid.getHeight() - h - 3), w));
                             //System.out.println(grid.getElement(w - (grid.getHeight() - h - 3), w) + "h  = " + (w - (grid.getHeight() - h - 3)) + " w = " + (w));
                         }
                     }
                 }
                 //System.out.println("************************** H = " + h);
             }
+            int count = 0;
+            String player = "";
+            for(int i = 0; i < line.size(); i++) {
+                if(i < line.size() -1) {
+                    if (i == 0 && line.get(i) != null) {
+                        count ++;
+                        player = line.get(i);
+                    }
+                    if(line.get(i + 1) != null) {
+                        if(player.equals(line.get(i + 1))) {
+                            count ++;
+                            player = line.get(i + 1);
+                        } else {
+                            count  = 1;
+                            player = line.get(i + 1);
+                        }
+
+                    } else {
+                        count = 0;
+                        player = "";
+                    }
+                }
+                if(count >= 4) {
+                    if(player.equals("x")) {
+                        Main.popup("Game Over, player 1 wins!");
+                    } else {
+                        Main.popup("Game Over, player 2 wins!");
+                    }
+                    Main.quitGame();
+                    break;
+                }
+            }
         }
 
         for(int h = 0; h < grid.getWidth(); h++) {
+            ArrayList<String> line = new ArrayList<String>();
             if(h <= 5) {
                 for (int w = grid.getWidth() - 1; w >= 0; w--) {
                     if (w < grid.getHeight() && w - (grid.getHeight() - h -2) < grid.getWidth()) {
                         if(w - (grid.getHeight() - h -2) >= 0) {
+                            line.add(grid.getElement(w,w - (grid.getHeight() - h -2)));
                             //System.out.println(grid.getElement(w,w - (grid.getHeight() - h -2)) + "h  = " + (w) + " w = " + (w - (grid.getHeight() - h -2)));
                         }
                     }
                 }
                 //System.out.println("************************** H = " + h);
             }
+            int count = 0;
+            String player = "";
+            for(int i = 0; i < line.size(); i++) {
+                if(i < line.size() -1) {
+                    if (i == 0 && line.get(i) != null) {
+                        count ++;
+                        player = line.get(i);
+                    }
+                    if(line.get(i + 1) != null) {
+                        if(player.equals(line.get(i + 1))) {
+                            count ++;
+                            player = line.get(i + 1);
+                        } else {
+                            count  = 1;
+                            player = line.get(i + 1);
+                        }
+
+                    } else {
+                        count = 0;
+                        player = "";
+                    }
+                }
+                if(count >= 4) {
+                    if(player.equals("x")) {
+                        Main.popup("Game Over, player 1 wins!");
+                    } else {
+                        Main.popup("Game Over, player 2 wins!");
+                    }
+                    Main.quitGame();
+                    break;
+                }
+            }
         }
         //end check left and up
 
         //check left and down
         for(int h = 0;  h < grid.getHeight(); h++) {
+            ArrayList<String> line = new ArrayList<String>();
             for(int w = grid.getWidth() - 1; w >= 0; w--) {
                 if(h + (grid.getWidth() - 1 - w) < grid.getHeight()) {
+                    line.add(grid.getElement(h + (grid.getWidth() - 1 - w), w));
                     //System.out.println(grid.getElement(h + (grid.getWidth() - 1 - w), w) + "h  = " + (h + (grid.getWidth() - 1 - w)) + " w = " + (w));
                 }
             }
             //System.out.println("************************** H = " + h);
+            int count = 0;
+            String player = "";
+            for(int i = 0; i < line.size(); i++) {
+                if(i < line.size() -1) {
+                    if (i == 0 && line.get(i) != null) {
+                        count ++;
+                        player = line.get(i);
+                    }
+                    if(line.get(i + 1) != null) {
+                        if(player.equals(line.get(i + 1))) {
+                            count ++;
+                            player = line.get(i + 1);
+                        } else {
+                            count  = 1;
+                            player = line.get(i + 1);
+                        }
+
+                    } else {
+                        count = 0;
+                        player = "";
+                    }
+                }
+                if(count >= 4) {
+                    if(player.equals("x")) {
+                        Main.popup("Game Over, player 1 wins!");
+                    } else {
+                        Main.popup("Game Over, player 2 wins!");
+                    }
+                    Main.quitGame();
+                    break;
+                }
+            }
         }
 
         for(int h = 0;  h < grid.getHeight(); h++) {
+            ArrayList<String> line = new ArrayList<String>();
             for(int w = grid.getWidth() - 1; w >= 0; w--) {
                 if((grid.getWidth() - 1 - w) < grid.getHeight() && w-h >= 0) {
-                    System.out.println(grid.getElement((grid.getWidth() - 1 - w), w - h) + " h  = " + ((grid.getWidth() - 1 - w)) + " w = " + (w - h));
+                    line.add(grid.getElement((grid.getWidth() - 1 - w), w - h));
+                    //System.out.println(grid.getElement((grid.getWidth() - 1 - w), w - h) + " h  = " + ((grid.getWidth() - 1 - w)) + " w = " + (w - h));
                 }
 
             }
-            System.out.println("************************** h = " + h);
+           //System.out.println("************************** h = " + h);
+            int count = 0;
+            String player = "";
+            for(int i = 0; i < line.size(); i++) {
+                if(i < line.size() -1) {
+                    if (i == 0 && line.get(i) != null) {
+                        count ++;
+                        player = line.get(i);
+                    }
+                    if(line.get(i + 1) != null) {
+                        if(player.equals(line.get(i + 1))) {
+                            count ++;
+                            player = line.get(i + 1);
+                        } else {
+                            count  = 1;
+                            player = line.get(i + 1);
+                        }
+
+                    } else {
+                        count = 0;
+                        player = "";
+                    }
+                }
+                if(count >= 4) {
+                    if(player.equals("x")) {
+                        Main.popup("Game Over, player 1 wins!");
+                    } else {
+                        Main.popup("Game Over, player 2 wins!");
+                    }
+                    Main.quitGame();
+                    break;
+                }
+            }
         }
 
         //check left and up
