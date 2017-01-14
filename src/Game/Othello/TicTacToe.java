@@ -145,10 +145,10 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 			}
 			//who's turn?
 			if (grid.turn){
-				player = "x";
+				player = "X";
 			}
 			else{
-				player = "o";
+				player = "O";
 			}
 			//add a piece
 			grid.addElement(gridX, gridY, player);
