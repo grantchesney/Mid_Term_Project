@@ -25,7 +25,7 @@ public class MainMenu extends JPanel implements KeyListener, MouseListener, Mous
 		imgBackground = ImageIO.read(fileURL);
 		fileURL = getClass().getResource("/img/menu connect 4.png");
 		imgHighlightConnect_Four = ImageIO.read(fileURL);
-		fileURL = getClass().getResource("/img/menu othello.png");
+		fileURL = getClass().getResource("/img/menu tictactoe.png");
 		imgHighlightOrthello = ImageIO.read(fileURL);
 		fileURL = getClass().getResource("/img/menu exit.png");
 		imgHighlightExit = ImageIO.read(fileURL);
@@ -92,7 +92,7 @@ public class MainMenu extends JPanel implements KeyListener, MouseListener, Mous
 	public void mouseClicked(MouseEvent e) {
         if (this.mouseX >= 37 && this.mouseX <= 468) {
             if(this.mouseY >= 240 && this.mouseY <= 653) {
-                Main.startOthello();
+                Main.startTicTacToe();
             }
 
         }

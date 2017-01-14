@@ -1,4 +1,4 @@
-package Game.Othello;
+package Game.TickTackToe;
 
 import Game.Game;
 import Game.Main;
@@ -27,13 +27,13 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 	
 	public TicTacToe() throws IOException  {
 		//image files 
-		fileURL = getClass().getResource("tictactoe board.png");
+		fileURL = getClass().getResource("/img/tictactoe board.png");
 		tictactoeBoard = ImageIO.read(fileURL);
 		
-		fileURL = getClass().getResource("o piece.png");
+		fileURL = getClass().getResource("/img/o piece.png");
 		oPiece = ImageIO.read(fileURL);
 		
-		fileURL = getClass().getResource("x piece.png");
+		fileURL = getClass().getResource("/img/x piece.png");
 		xPiece = ImageIO.read(fileURL);
 		
 		grid = new TicTacToe_Grid(3, 3);

@@ -1,4 +1,4 @@
-package Game.Othello;
+package Game.TickTackToe;
 
 import Game.Grid;
 

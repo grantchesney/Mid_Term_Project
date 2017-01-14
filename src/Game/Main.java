@@ -3,8 +3,7 @@ package Game;
 import javax.swing.*;
 
 import Game.Connect_Four.Connect_Four;
-import Game.Connect_Four.Connect_Four_Grid;
-import Game.Othello.Othello;
+import Game.TickTackToe.*;
 
 import java.io.IOException;
 
@@ -13,7 +12,7 @@ public class Main {
 	public static JFrame frame = new JFrame("Game");
 	private static int state = 4;
 	private static Connect_Four connectFour;
-	private static Othello othello;
+	private static TicTacToe TicTacToe;
 	private static MainMenu menu;
 	private static PauseMenu pauseMenu;
 	private static int runningGame;
@@ -22,7 +21,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		connectFour = new Connect_Four();
-		//othello = new Othello();
+		TicTacToe = new TicTacToe();
 		menu = new MainMenu();
 		pauseMenu = new PauseMenu();
 
@@ -43,10 +42,10 @@ public class Main {
 		pauseMenu.addMouseMotionListener(pauseMenu);
 		pauseMenu.addMouseListener(pauseMenu);
 
-//		othello.setSize(1024, 798);
-//		othello.addKeyListener(othello);
-//		othello.addMouseMotionListener(othello);
-//		othello.addMouseListener(othello);
+//		TicTacToe.setSize(1024, 798);
+//		TicTacToe.addKeyListener(TicTacToe);
+//		TicTacToe.addMouseMotionListener(TicTacToe);
+//		TicTacToe.addMouseListener(TicTacToe);
 
 		menu.setSize(1024, 798);
 		menu.addKeyListener(menu);
@@ -67,8 +66,8 @@ public class Main {
 					break;
 				case 2:
 					frame.repaint();
-					othello.repaint();
-					othello.run();
+					TicTacToe.repaint();
+					TicTacToe.run();
 					break;
 				case 3:
 					frame.repaint();
@@ -84,14 +83,14 @@ public class Main {
 
 	}
 
-	public static void startOthello() {
+	public static void startTicTacToe() {
 		runningGame = 1;
-		othello.setSize(1024, 798);
-		othello.addKeyListener(othello);
-		othello.addMouseMotionListener(othello);
-		othello.addMouseListener(othello);
-		othello.requestFocus();
-		frame.setContentPane(othello);
+		TicTacToe.setSize(1024, 798);
+		TicTacToe.addKeyListener(TicTacToe);
+		TicTacToe.addMouseMotionListener(TicTacToe);
+		TicTacToe.addMouseListener(TicTacToe);
+		TicTacToe.requestFocus();
+		frame.setContentPane(TicTacToe);
 		frame.repaint();
 
 		state = 2;
@@ -114,7 +113,7 @@ public class Main {
 	}
 	public static void quitGame() {
 		if (runningGame == 1) {
-			othello.reset();
+			TicTacToe.reset();
 		}
 		else if (runningGame == 2) {
 			connectFour.reset();
@@ -130,7 +129,7 @@ public class Main {
 
 	public static void returnToGame() {
 		if (runningGame == 1) {
-			startOthello();
+			startTicTacToe();
 		}
 		else if (runningGame == 2) {
 			startConnectFour();
