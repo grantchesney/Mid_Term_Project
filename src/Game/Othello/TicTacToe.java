@@ -15,19 +15,20 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class Othello extends Game implements KeyListener, MouseListener, MouseMotionListener {
+public class TicTacToe extends Game implements KeyListener, MouseListener, MouseMotionListener {
 	URL fileURL; 
-	private Othello_Grid grid;
+	private TicTacToe_Grid grid;
 	//buffered images
-	BufferedImage blackPiece;
-	BufferedImage whitePiece;
-	BufferedImage othelloBoard;
-	
-	boolean turn = false; 
-	//false: black	true: white
-	
+	BufferedImage oPiece;
+	BufferedImage xPiece;
+	BufferedImage tictactoeBoard;
+	public boolean gameOn;
+	//counters for game pieces
+
 	public void run() {
-		
+		while (gameOn){
+			
+		}
 	}
 
 	public void draw(Graphics g) {
@@ -35,21 +36,21 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 	}
 	public void paintComponent(Graphics g) {
 		//draw game board
-		g.drawImage(othelloBoard, 0, 0, null);
+		g.drawImage(tictactoeBoard, 0, 0, null);
 	}
 
-	public Othello() throws IOException  {
+	public void TicTacToe() throws IOException  {
 		//image files 
-		fileURL = getClass().getResource("Othello board.png");
-		othelloBoard = ImageIO.read(fileURL);
+		fileURL = getClass().getResource("tictactoe board.png");
+		tictactoeBoard = ImageIO.read(fileURL);
 		
-		fileURL = getClass().getResource("whitePiece.png");
-		whitePiece = ImageIO.read(fileURL);
+		fileURL = getClass().getResource("o piece.png");
+		oPiece = ImageIO.read(fileURL);
 		
-		fileURL = getClass().getResource("blackPiece.png");
-		blackPiece = ImageIO.read(fileURL);
+		fileURL = getClass().getResource("x piece.png");
+		xPiece = ImageIO.read(fileURL);
 		
-		grid = new Othello_Grid();
+		grid = new TicTacToe_Grid();
 	}
 
 	
@@ -75,16 +76,11 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 		int clickX = MouseInfo.getPointerInfo().getLocation().x;
 		int clickY = MouseInfo.getPointerInfo().getLocation().y;
 		int gridX, gridY;
-		//if mouse is clicked on game board
-		if (clickX < 875 && clickX > 155 && clickY > -750 && clickY < -30){
-			//find grid location that was clicked
-			gridX = (clickX - 155)/90 + 1;
-			gridY = (-clickY - 30)/90 + 1;
-			grid.addElement(gridX, gridY, grid.playerTurn);
-		}
 		
-	}
-
+		
+		
+		
+		}
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -126,6 +122,6 @@ public class Othello extends Game implements KeyListener, MouseListener, MouseMo
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 
 }
