@@ -53,8 +53,10 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 		grid = new TicTacToe_Grid(3, 3);
 	}
 
-	
-	
+
+	public void reset() {
+
+	}
 	
 	//----------Auto Generated--------------
 
@@ -141,7 +143,7 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
