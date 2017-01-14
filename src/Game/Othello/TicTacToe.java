@@ -1,6 +1,7 @@
 package Game.Othello;
 
 import Game.Game;
+import Game.Main;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -13,7 +14,6 @@ import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 public class TicTacToe extends Game implements KeyListener, MouseListener, MouseMotionListener {
 	URL fileURL; 
@@ -22,24 +22,10 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 	BufferedImage oPiece;
 	BufferedImage xPiece;
 	BufferedImage tictactoeBoard;
-	public boolean gameOn;
-	String player = "x";
-	public void run() {
-		while (gameOn){
-			
-		}
-	}
-
-	public void draw(Graphics g) {
-		
-		
-	}
-	public void paintComponent(Graphics g) {
-		//draw game board
-		g.drawImage(tictactoeBoard, 0, 0, null);
-	}
-
-	public void TicTacToe() throws IOException  {
+	String player = "X";	
+	String winner = "";
+	
+	public TicTacToe() throws IOException  {
 		//image files 
 		fileURL = getClass().getResource("tictactoe board.png");
 		tictactoeBoard = ImageIO.read(fileURL);
@@ -52,10 +38,66 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 		
 		grid = new TicTacToe_Grid(3, 3);
 	}
+	
+	public void run() {
+	}
+
+	public void paintComponent(Graphics g) {
+		//draw game board
+		g.drawImage(tictactoeBoard, 0, 0, null);
+		if (grid.turn) {
+	     	g.drawString("X's turn", 10, 20);
+		 } 
+		 else {
+			 g.drawString("O's turn", 10, 20);
+		 }
+		 for (int x = 0; x <= 2; x++){
+			 for (int y = 0; y <= 2; y++){
+				 if (grid.grid[y][x].equals("X")){
+					 g.drawImage(xPiece, x*177 + 257, y*+177 + 118, null);
+				 }
+				 else if (grid.grid[y][x].equals("O")){
+					 g.drawImage(oPiece, x*177 + 257, y*177 + 118, null);
+				 }
+			 }
+		 }
+		
+	}
 
 
+
+	public void checkWin(){
+		//check rows
+		for (int i = 0; i < 3; i++){
+			if (grid.grid[i][0].equals(grid.grid[i][1]) && grid.grid[i][1].equals(grid.grid[i][2]) ) {
+				winner = grid.grid[i][0];
+				Main.popup("Player " + winner + " Wins!" );
+				 Main.quitGame();
+			}
+			//check columns 
+			else if (grid.grid[0][i].equals(grid.grid[1][i]) && grid.grid[1][i].equals(grid.grid[2][i]) ) {
+				winner = grid.grid[0][i];
+				Main.popup("Player " + winner + " Wins!" );
+				 Main.quitGame();
+			}
+		}
+		//diagonals
+		if (grid.grid[0][0].equals(grid.grid[1][1]) && grid.grid[1][1].equals(grid.grid[2][2]) ) {
+			winner = grid.grid[0][0];
+			Main.popup("Player " + winner + " Wins!" );
+			 Main.quitGame();
+		}
+		else if (grid.grid[0][2].equals(grid.grid[1][1]) && grid.grid[1][1].equals(grid.grid[2][0]) ) {
+			winner = grid.grid[0][2];
+			Main.popup("Player " + winner + " Wins!" );
+			 Main.quitGame();
+		}
+		
+	}
 	public void reset() {
-
+		grid.resetDB();
+		player = "X";
+		grid.turn = true;
 	}
 	
 	//----------Auto Generated--------------
@@ -80,7 +122,7 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 		int gridX, gridY;
 		//find out where they clicked
 		//if the click is inside the board
-		if (clickX < 752 && clickX > 257 && clickY < -118 && clickY > -614){
+		if (clickX < 752 && clickX > 257 && clickY > 118 && clickY < 614){
 			//find out the x coord
 			if (clickX < 257 + 166){
 				gridX = 1;
@@ -92,10 +134,10 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 				gridX = 3;
 			}
 			//find y coord
-			if (clickY > -118 - 166){
+			if (clickY < 118 + 166){
 				gridY = 1;
 			}
-			else if (clickY > -118 - 2 * 166){
+			else if (clickY < 118 + 2 * 166){
 				gridY = 2;
 			}
 			else{
@@ -110,6 +152,7 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 			}
 			//add a piece
 			grid.addElement(gridX, gridY, player);
+			checkWin();
 			
 		}
 		
@@ -142,7 +185,9 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+		 if (e.getKeyCode() == 27) {
+	            Main.openPauseMenu();
+		}
 
 	}
 
