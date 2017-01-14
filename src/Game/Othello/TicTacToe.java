@@ -23,8 +23,7 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 	BufferedImage xPiece;
 	BufferedImage tictactoeBoard;
 	public boolean gameOn;
-	//counters for game pieces
-
+	String player = "x";
 	public void run() {
 		while (gameOn){
 			
@@ -32,6 +31,7 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 	}
 
 	public void draw(Graphics g) {
+		
 		
 	}
 	public void paintComponent(Graphics g) {
@@ -50,7 +50,7 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 		fileURL = getClass().getResource("x piece.png");
 		xPiece = ImageIO.read(fileURL);
 		
-		grid = new TicTacToe_Grid();
+		grid = new TicTacToe_Grid(3, 3);
 	}
 
 	
@@ -76,7 +76,40 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 		int clickX = MouseInfo.getPointerInfo().getLocation().x;
 		int clickY = MouseInfo.getPointerInfo().getLocation().y;
 		int gridX, gridY;
-		
+		//find out where they clicked
+		//if the click is inside the board
+		if (clickX < 752 && clickX > 257 && clickY < -118 && clickY > -614){
+			//find out the x coord
+			if (clickX < 257 + 166){
+				gridX = 1;
+			}
+			else if (clickX < 257 + 2 * 166){
+				gridX = 2;
+			}
+			else{
+				gridX = 3;
+			}
+			//find y coord
+			if (clickY > -118 - 166){
+				gridY = 1;
+			}
+			else if (clickY > -118 - 2 * 166){
+				gridY = 2;
+			}
+			else{
+				gridY = 3;
+			}
+			//who's turn?
+			if (grid.turn){
+				player = "x";
+			}
+			else{
+				player = "o";
+			}
+			//add a piece
+			grid.addElement(gridX, gridY, player);
+			
+		}
 		
 		
 		

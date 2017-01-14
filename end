@@ -1,0 +1,126 @@
+[33mcommit e85f487abcd9005692bc930fac17f6b55aec8e4a[m
+Author: Drake Wong <drakewong@crescentschool.org>
+Date:   Fri Jan 13 22:37:05 2017 -0500
+
+    deleted all unneeded code and created new images for tictactoe. also renamed the files
+
+[33mcommit 6850204942f4a4055d3d84a7ff793b6d7d6fdd6e[m
+Author: Drake Wong <drakewong@crescentschool.org>
+Date:   Sat Dec 17 00:51:02 2016 -0500
+
+    Completed valid move checking for right, bottom, and bottom right.
+
+[33mcommit ce9a1d3e49355c3170e7a05f8e924cd327479a74[m
+Merge: 88be6af 57670e7
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Fri Dec 16 06:56:10 2016 -0500
+
+    Merge branch 'master' into Develop/Othello
+    
+    # Conflicts:
+    #       src/Game/Othello/Othello.java
+    #       src/Game/Othello/Othello_Grid.java
+
+[33mcommit 88be6affb454141a4104660809f5ae85a2e9fbdf[m
+Author: Drake Wong <drakewong@crescentschool.org>
+Date:   Wed Dec 14 19:04:19 2016 -0500
+
+    Implemented code for elements to be added to the grid array when grid is clicked in Othello class.
+
+[33mcommit 57670e7c25ba1e2a1956c38208634bc71943841a[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Wed Dec 14 17:53:27 2016 -0500
+
+    Cleanup.
+
+[33mcommit 90fd6956bb81ecca26fb76f10fcec9027a8aa0d8[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Wed Dec 14 17:51:28 2016 -0500
+
+    Working on the main menu, adding the background image.
+
+[33mcommit 715f3ad21f3c03a61f3b4fa1ca6e80f67af9c49a[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Wed Dec 14 15:13:22 2016 -0500
+
+    Revert "Implemented code for elements to be added to the grid array when grid is clicked in Othello class."
+    
+    This reverts commit 9bc0b1477e46ecd67762a4ab3ebd9ce23e314ac4.
+
+[33mcommit 9bc0b1477e46ecd67762a4ab3ebd9ce23e314ac4[m
+Author: Drake Wong <drakewong@crescentschool.org>
+Date:   Wed Dec 14 15:01:13 2016 -0500
+
+    Implemented code for elements to be added to the grid array when grid is clicked in Othello class.
+
+[33mcommit a338096e0db0e78823dc0451dc777aae1529f169[m
+Author: Drake Wong <drakewong@crescentschool.org>
+Date:   Wed Dec 14 14:17:32 2016 -0500
+
+    Added images for the Othello game pieces. Created buffered images for them inside of  Othello class and drew the background in the paint method.
+
+[33mcommit 71c48638cdf1784cf355b635d71fcf3619a93333[m
+Author: Drake Wong <drakewong@crescentschool.org>
+Date:   Wed Dec 14 10:11:13 2016 -0500
+
+    Updated Othello class.
+
+[33mcommit d5133df9c5d7950ef8a3c6a4ab68d386e16a441f[m
+Author: Drake Wong <drakewong@crescentschool.org>
+Date:   Tue Dec 13 21:06:59 2016 -0500
+
+    Added Menu images and game board images
+
+[33mcommit 6a682a82de27539b0dc0ebadf183275d6b293495[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Tue Dec 13 12:40:55 2016 -0500
+
+    Added the use of an abstract class to the project.
+
+[33mcommit f4c588464e4c2b9a0e338357f88d1323bf3cede7[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Sun Dec 11 17:01:25 2016 -0500
+
+    Updated the gitignore file for intellaj use.
+
+[33mcommit fd7d172727d5e1eb9d57396446b5a1b4ea9c4670[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Fri Dec 9 20:46:55 2016 -0500
+
+    Getting mouse info printed to screen.
+
+[33mcommit 244b1e512f27daa7e7043acc577757534b3553b1[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Fri Dec 9 20:41:17 2016 -0500
+
+    Setup swing, started working on the main menu.
+
+[33mcommit 75eca369fbbc0b4dfddad3c07184f586b09df523[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Fri Dec 9 18:04:30 2016 -0500
+
+    Working on the game specific files.
+
+[33mcommit b68138adfd2fbf3346e25d5a51883168cf1a91b1[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Fri Dec 9 17:54:39 2016 -0500
+
+    Working on the game logic and the specific grid for connect four.
+
+[33mcommit 684fd60517a86e7e67c90012c4d071586cdddc19[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Fri Dec 9 17:37:16 2016 -0500
+
+    Done innital grid class.
+
+[33mcommit 632cc2ed846ef31da2df66f33a7861efed663c05[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Fri Dec 9 17:12:52 2016 -0500
+
+    Project setup.
+
+[33mcommit cc541d419c2d34dbc5e8d69880710c243e30d648[m
+Author: Grant Chesney <grantchesney@crescentschool.org>
+Date:   Fri Dec 9 17:05:29 2016 -0500
+
+    Initial commit
