@@ -84,6 +84,7 @@ public class Main {
 	}
 
 	public static void startTicTacToe() {
+		TicTacToe.reset();
 		runningGame = 1;
 		TicTacToe.setSize(1024, 798);
 		TicTacToe.addKeyListener(TicTacToe);
