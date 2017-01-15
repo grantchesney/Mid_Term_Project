@@ -53,10 +53,10 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 		 }
 		 for (int x = 0; x <= 2; x++){
 			 for (int y = 0; y <= 2; y++){
-				 if (grid.grid[y][x].equals("X")){
+				 if (grid.grid[y][x] != null && grid.grid[y][x].equals("X")){
 					 g.drawImage(xPiece, x*177 + 257, y*+177 + 118, null);
 				 }
-				 else if (grid.grid[y][x].equals("O")){
+				 else if (grid.grid[y][x] != null && grid.grid[y][x].equals("O")){
 					 g.drawImage(oPiece, x*177 + 257, y*177 + 118, null);
 				 }
 			 }

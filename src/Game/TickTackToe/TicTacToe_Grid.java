@@ -12,7 +12,7 @@ public class TicTacToe_Grid extends Grid{
 	@Override
 	public void addElement(int x, int y, String s) {
 		//only add if empty;
-		if (grid[y][x].equals(null)){
+		if (grid[y][x] == null){
 			grid[y][x] = s;
 			turn = !turn;
 		}
