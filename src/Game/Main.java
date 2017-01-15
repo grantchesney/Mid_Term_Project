@@ -16,9 +16,14 @@ public class Main {
 	private static MainMenu menu;
 	private static PauseMenu pauseMenu;
 	private static int runningGame;
+	private static JPanel downcast1; //Down cast
+	public static MainMenu downcast2;
 
 
 	public static void main(String[] args) throws IOException {
+
+		downcast2 = new MainMenu(); //Downcast
+		downcast1 = (JPanel) downcast2;//Downcast
 
 		connectFour = new Connect_Four();
 		TicTacToe = new TicTacToe();
