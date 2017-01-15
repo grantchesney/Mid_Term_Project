@@ -69,35 +69,56 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 	public void checkWin(){
 		//check rows
 		for (int i = 0; i < 3; i++){
-			if (grid.grid[i][0].equals(grid.grid[i][1]) && grid.grid[i][1].equals(grid.grid[i][2]) ) {
-				winner = grid.grid[i][0];
-				Main.popup("Player " + winner + " Wins!" );
-				 Main.quitGame();
+			//check if null first
+			if (grid.grid[i][0] != null && grid.grid[i][1] != null && grid.grid[i][2] != null){
+				if (grid.grid[i][0].equals(grid.grid[i][1]) && grid.grid[i][1].equals(grid.grid[i][2]) ) {
+					winner = grid.grid[i][0];
+					Main.popup("Player " + winner + " Wins!" );
+					 Main.quitGame();
+				}
 			}
 			//check columns 
-			else if (grid.grid[0][i].equals(grid.grid[1][i]) && grid.grid[1][i].equals(grid.grid[2][i]) ) {
-				winner = grid.grid[0][i];
-				Main.popup("Player " + winner + " Wins!" );
-				 Main.quitGame();
+			if (grid.grid[0][i] != null && grid.grid[1][i] != null && grid.grid[2][i] != null){
+				if (grid.grid[0][i].equals(grid.grid[1][i]) && grid.grid[1][i].equals(grid.grid[2][i]) ) {
+					winner = grid.grid[0][i];
+					Main.popup("Player " + winner + " Wins!" );
+					 Main.quitGame();
+				}
 			}
 		}
 		//diagonals
-		if (grid.grid[0][0].equals(grid.grid[1][1]) && grid.grid[1][1].equals(grid.grid[2][2]) ) {
-			winner = grid.grid[0][0];
-			Main.popup("Player " + winner + " Wins!" );
+		if (grid.grid[0][0] != null && grid.grid[1][1] != null && grid.grid[2][2] != null){
+			if (grid.grid[0][0].equals(grid.grid[1][1]) && grid.grid[1][1].equals(grid.grid[2][2]) ) {
+				winner = grid.grid[0][0];
+				Main.popup("Player " + winner + " Wins!" );
+				 Main.quitGame();
+			}
+		}
+		if (grid.grid[0][2] != null && grid.grid[1][1] != null && grid.grid[2][0] != null){
+			if (grid.grid[0][2].equals(grid.grid[1][1]) && grid.grid[1][1].equals(grid.grid[2][0]) ) {
+				winner = grid.grid[0][2];
+				Main.popup("Player " + winner + " Wins!" );
+				 Main.quitGame();
+			}
+		}
+		if(grid.movesCounter ==9){
+			Main.popup("Tie Game!" );
 			 Main.quitGame();
 		}
-		else if (grid.grid[0][2].equals(grid.grid[1][1]) && grid.grid[1][1].equals(grid.grid[2][0]) ) {
-			winner = grid.grid[0][2];
-			Main.popup("Player " + winner + " Wins!" );
-			 Main.quitGame();
-		}
+
 		
 	}
 	public void reset() {
 		grid.resetDB();
 		player = "X";
 		grid.turn = true;
+		grid.movesCounter = 0;
+		//reset array to empty board
+		for (int i = 0; i < 3; i++){
+			for (int z = 0; z < 3; z++){
+				grid.grid[z][i] = null;
+			}
+		}
 	}
 	
 	//----------Auto Generated--------------
@@ -125,23 +146,23 @@ public class TicTacToe extends Game implements KeyListener, MouseListener, Mouse
 		if (clickX < 752 && clickX > 257 && clickY > 118 && clickY < 614){
 			//find out the x coord
 			if (clickX < 257 + 166){
-				gridX = 1;
+				gridX = 0;
 			}
 			else if (clickX < 257 + 2 * 166){
-				gridX = 2;
+				gridX = 1;
 			}
 			else{
-				gridX = 3;
+				gridX = 2;
 			}
 			//find y coord
 			if (clickY < 118 + 166){
-				gridY = 1;
+				gridY = 0;
 			}
 			else if (clickY < 118 + 2 * 166){
-				gridY = 2;
+				gridY = 1;
 			}
 			else{
-				gridY = 3;
+				gridY = 2;
 			}
 			//who's turn?
 			if (grid.turn){
